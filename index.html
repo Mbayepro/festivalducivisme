@@ -90,12 +90,13 @@
   <main>
     <!-- HERO SECTION -->
     <section class="hero" id="accueil">
-      <div class="hero-glow hero-glow-blue"></div>
-      <div class="hero-glow hero-glow-green"></div>
-      <div class="hero-grid-pattern"></div>
+      <div class="hero-glow hero-glow-blue" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-green" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-soft" aria-hidden="true"></div>
+      <div class="hero-grid-pattern" aria-hidden="true"></div>
 
       <div class="container hero-grid">
-        <div class="hero-left reveal">
+        <div class="hero-left">
           <div class="organizers-pill">
             <img src="logos/promart.jpg" alt="Prom'Art Compagnie" class="org-mini-logo" />
             <span class="org-divider"></span>
@@ -104,13 +105,22 @@
           </div>
 
           <h1 class="hero-title">
-            Festival du <span>Civisme</span>
+            <span class="hero-word-mask"><span class="hero-title-word" style="--word-i: 0;">Festival</span></span>
+            <span class="hero-word-mask"><span class="hero-title-word" style="--word-i: 1;">du</span></span>
+            <span class="hero-word-mask"><span class="hero-title-word hero-word-civisme" style="--word-i: 2;" data-word="Civisme">Civisme</span></span>
           </h1>
 
+          <!-- Ligne dynamique : mot qui alterne toutes les 2,5 s -->
+          <p class="hero-rotating-line" aria-live="polite">
+            <span class="hero-rotating-prefix">Ensemble pour la </span>
+            <span class="hero-word-slot" id="heroWordSlot">
+              <span class="hero-word-sizer" aria-hidden="true">Environnement</span>
+              <span class="hero-word-item is-current">Culture</span>
+            </span>
+          </p>
+
           <div class="hero-intro-wrap">
-            <p class="hero-slogan">
-              « Culture, environnement et citoyenneté : créons, engageons-nous et transformons notre communauté ! »
-            </p>
+            <p class="hero-slogan">« Culture, environnement et citoyenneté : créons, engageons-nous et transformons notre communauté ! »</p>
             <div class="readmore-box" hidden>
               <p class="hero-summary">
                 À <strong>Yeumbeul</strong> et dans le département de Keur Massar, le Festi'Civisme agit toute l'année sur le terrain à travers des <strong>journées de Set Setal (nettoyage)</strong>, des <strong>campagnes de reboisement</strong> et des <strong>formations gratuites offertes aux jeunes</strong>.
@@ -123,7 +133,7 @@
           </div>
 
           <div class="hero-key-facts">
-            <div class="fact-box">
+            <div class="fact-box" style="--fact-i: 0;">
               <div class="fact-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
               </div>
@@ -133,7 +143,7 @@
               </div>
             </div>
 
-            <div class="fact-box">
+            <div class="fact-box" style="--fact-i: 1;">
               <div class="fact-icon green">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
@@ -169,7 +179,7 @@
           </div>
         </div>
 
-        <div class="hero-right reveal">
+        <div class="hero-right">
           <div class="poster-frame">
             <img src="affiche.jpg" alt="Affiche officielle Festi'Civisme 3ᵉ Édition - 19 au 21 Novembre 2026 à Yeumbeul" class="poster-img" />
             <div class="poster-badge-float">
@@ -209,19 +219,19 @@
     <section class="metrics-bar">
       <div class="container metrics-grid">
         <div class="metric-item reveal">
-          <strong class="metric-value"><span data-count="3">0</span>ᵉ</strong>
+          <strong class="metric-value"><span data-count="3">3</span>ᵉ</strong>
           <span>Édition officielle à Yeumbeul</span>
         </div>
         <div class="metric-item reveal">
-          <strong class="metric-value"><span data-count="18">0</span>+</strong>
+          <strong class="metric-value"><span data-count="18">18</span>+</strong>
           <span>Partenaires & institutions engagés</span>
         </div>
         <div class="metric-item reveal">
-          <strong class="metric-value"><span data-count="100">0</span>%</strong>
+          <strong class="metric-value"><span data-count="100">100</span>%</strong>
           <span>Formations gratuites pour les jeunes</span>
         </div>
         <div class="metric-item reveal">
-          <strong class="metric-value"><span data-count="7">0</span></strong>
+          <strong class="metric-value"><span data-count="7">7</span></strong>
           <span>Activités au programme</span>
         </div>
       </div>
@@ -233,9 +243,9 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow">ENGAGEMENT SUR LE TERRAIN • TOUTE L'ANNÉE</span>
-            <h2 class="section-title">Set Setal, Reboisement & Formations gratuites aux jeunes</h2>
+            <h2 class="section-title reveal">Set Setal, Reboisement & Formations gratuites aux jeunes</h2>
           </div>
-          <p class="section-desc">
+          <p class="section-desc reveal">
             Au-delà des 3 jours du festival, <strong>Prom'Art Compagnie</strong> et le <strong>FDCUIC</strong> organisent régulièrement à Yeumbeul des journées de nettoyage citoyen, des campagnes de reboisement et des ateliers pratiques gratuits.
           </p>
         </div>
@@ -398,7 +408,7 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow">PRÉPARATIFS OFFICIELS • 3ᵉ ÉDITION</span>
-            <h2 class="section-title">Audiences institutionnelles & Appels à mobilisation</h2>
+            <h2 class="section-title reveal">Audiences institutionnelles & Appels à mobilisation</h2>
           </div>
           <a href="https://www.facebook.com/profile.php?id=61574910309164" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
             <span>Suivre sur Facebook</span>
@@ -632,7 +642,7 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow">MÉDIATHÈQUE TERRAIN • YEUMBEUL</span>
-            <h2 class="section-title">En images : Formations, Set Setal & Audiences</h2>
+            <h2 class="section-title reveal">En images : Formations, Set Setal & Audiences</h2>
           </div>
           <div class="gallery-filters" role="tablist">
             <button class="gal-tab active" data-gal="all">Toutes (21)</button>
@@ -826,7 +836,7 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow">19 AU 21 NOVEMBRE 2026 • YEUMBEUL NORD</span>
-            <h2 class="section-title">Programme officiel sur 3 jours</h2>
+            <h2 class="section-title reveal">Programme officiel sur 3 jours</h2>
           </div>
           <div class="prog-filter-tabs" role="tablist">
             <button class="prog-tab active" data-day="all">Les 3 Jours</button>
@@ -945,7 +955,7 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow">ORGANISATEURS, PARTENAIRES & INSTITUTIONS</span>
-            <h2 class="section-title">Ils soutiennent le Festival du Civisme</h2>
+            <h2 class="section-title reveal">Ils soutiennent le Festival du Civisme</h2>
           </div>
           <button type="button" class="btn btn-primary btn-sm" id="openPressKitTop">
             <span>Devenir Partenaire</span>
@@ -979,68 +989,68 @@
           </div>
         </div>
 
-        <div class="partner-logos-grid reveal">
-          <div class="partner-logo-card">
+        <div class="partner-logos-grid">
+          <div class="partner-logo-card reveal">
             <img src="logos/volontaires.jpg" alt="Collectif des Volontaires du Sénégal" />
             <span>Collectif des Volontaires du Sénégal</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/cultures-croisees.jpg" alt="Cultures Croisées" />
             <span>Cultures Croisées</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/casamancaise.jpg" alt="Casamançaise" />
             <span>Casamançaise</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/mangosports.jpg" alt="MangoSports" />
             <span>MangoSports</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/adansonia-green.jpg" alt="Adansonia Green" />
             <span>Adansonia Green</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/dks.jpg" alt="Dunia Kato Sénégal (DKS)" />
             <span>Dunia Kato Sénégal (DKS)</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/social-change-factory.jpg" alt="Social Change Factory" />
             <span>Social Change Factory</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/asergmv.jpg" alt="ASERGMV - Grande Muraille Verte" />
             <span>ASERGMV (Grande Muraille Verte)</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/dafart.jpg" alt="Daf'Art (DAC)" />
             <span>Daf'Art (DAC)</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/batiment-sn.jpg" alt="Bâtiment.sn" />
             <span>Bâtiment.sn</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/wil-prod.jpg" alt="Wil Prod" />
             <span>Wil Prod</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/little-green-dots.jpg" alt="Little Green Dots" />
             <span>Little Green Dots</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/yeumbeul-tv.jpg" alt="Yeumbeul TV" />
             <span>Yeumbeul TV</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/we-management.jpg" alt="We Management.sn" />
             <span>We Management.sn</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/acteurs-culturels-km.jpg" alt="Mouvement des Acteurs Culturels de Keur Massar" />
             <span>Acteurs Culturels de Keur Massar</span>
           </div>
-          <div class="partner-logo-card">
+          <div class="partner-logo-card reveal">
             <img src="logos/tj.jpg" alt="Collectif TJ" />
             <span>Collectif TJ</span>
           </div>
@@ -1079,8 +1089,8 @@
       <div class="container reg-layout">
         <div class="reg-left reveal">
           <span class="eyebrow">ACCRÉDITATION & VOLONTARIAT</span>
-          <h2 class="section-title">Obtenez votre Pass Citoyen 2026</h2>
-          <p class="section-desc">
+          <h2 class="section-title reveal">Obtenez votre Pass Citoyen 2026</h2>
+          <p class="section-desc reveal">
             Inscrivez-vous aux <strong>formations gratuites offertes aux jeunes</strong> ou rejoignez nos équipes pour les journées de <strong>Set Setal</strong> et de <strong>reboisement</strong>. Votre badge nominatif est généré instantanément.
           </p>
 

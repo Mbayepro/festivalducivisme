@@ -105,32 +105,141 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     2. ANIMATIONS AU DÉFILEMENT, BARRE DE PROGRESSION & EFFETS 3D
+     2. ANIMATIONS AU DÉFILEMENT, MOT ROTATIF, MACHINE À ÉCRIRE & COMPTEURS
      ========================================================================== */
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealEls = document.querySelectorAll('.reveal');
 
-  document.querySelectorAll('.actions-grid, .gallery-grid, .programme-table, .metrics-grid').forEach((grid) => {
-    grid.querySelectorAll('.reveal').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.09}s`;
+  /* N'active l'état initial caché (.reveal) que si JavaScript est chargé
+     et que l'utilisateur n'a pas activé prefers-reduced-motion */
+  if (!reduceMotion) {
+    document.documentElement.classList.add('js-enabled');
+  }
+
+  /* 2.1 Apparition au scroll (IntersectionObserver, seuil 0.15, une seule fois) */
+  const autoRevealSelectors = [
+    '.section-title',
+    '.section-desc',
+    '.action-card',
+    '.prog-row',
+    '.partner-logo-card',
+    '.story-card'
+  ];
+  document.querySelectorAll(autoRevealSelectors.join(', ')).forEach((el) => {
+    el.classList.add('reveal');
+  });
+
+  /* Décalage en cascade de 120 ms pour les groupes (cartes, programme, partenaires) */
+  const staggerGroups = [
+    { container: '.actions-grid', item: '.action-card' },
+    { container: '.programme-table', item: '.prog-row' },
+    { container: '.partner-logos-grid', item: '.partner-logo-card' },
+    { container: '.metrics-grid', item: '.metric-item' }
+  ];
+
+  staggerGroups.forEach(({ container, item }) => {
+    const groupEl = document.querySelector(container);
+    if (!groupEl) return;
+    groupEl.querySelectorAll(item).forEach((el, index) => {
+      el.style.setProperty('--reveal-delay', `${index * 120}ms`);
     });
   });
 
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+            /* Anime une seule fois : on arrête d'observer l'élément */
+            obs.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
-    revealEls.forEach((el) => observer.observe(el));
+    revealEls.forEach((el) => revealObserver.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  /* 2.2 Mot qui change sous le titre du hero toutes les 2,5 s :
+     "Ensemble pour la " + Culture -> Environnement -> Citoyenneté -> Jeunesse
+     (la largeur du mot le plus long "Environnement" est réservée par .hero-word-sizer) */
+  const heroWordSlot = document.getElementById('heroWordSlot');
+  const rotatingWords = ['Culture', 'Environnement', 'Citoyenneté', 'Jeunesse'];
+  let currentWordIndex = 0;
+
+  if (heroWordSlot && !reduceMotion) {
+    setInterval(() => {
+      currentWordIndex = (currentWordIndex + 1) % rotatingWords.length;
+      const nextWordText = rotatingWords[currentWordIndex];
+
+      /* L'ancien mot sort vers le haut avec fondu */
+      const currentWordEl = heroWordSlot.querySelector('.hero-word-item.is-current');
+      if (currentWordEl) {
+        currentWordEl.classList.remove('is-current');
+        currentWordEl.classList.add('is-exiting');
+        setTimeout(() => {
+          currentWordEl.remove();
+        }, 500);
+      }
+
+      /* Le nouveau mot arrive par le bas */
+      const nextWordEl = document.createElement('span');
+      nextWordEl.className = 'hero-word-item is-entering';
+      nextWordEl.textContent = nextWordText;
+      heroWordSlot.appendChild(nextWordEl);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          nextWordEl.classList.remove('is-entering');
+          nextWordEl.classList.add('is-current');
+        });
+      });
+    }, 2500);
+  }
+
+  /* 2.3 Compteurs animés (3e, 18+, 100%, 7) de 0 à leur valeur en 1,5 s (1500 ms) */
+  const counters = document.querySelectorAll('[data-count]');
+  const animateCount = (el) => {
+    const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    if (reduceMotion) {
+      el.textContent = String(target);
+      return;
+    }
+    const duration = 1500;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const countObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    counters.forEach((c) => {
+      c.textContent = '0';
+      countObserver.observe(c);
+    });
+  } else {
+    counters.forEach((c) => {
+      c.textContent = c.getAttribute('data-count') || '0';
+    });
   }
 
   /* Barre de progression de lecture */
@@ -142,63 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
-
-  /* Compteurs animés des chiffres clés */
-  const counters = document.querySelectorAll('[data-count]');
-  const animateCount = (el) => {
-    const target = parseInt(el.getAttribute('data-count'), 10) || 0;
-    if (reduceMotion) {
-      el.textContent = String(target);
-      return;
-    }
-    const duration = 1600;
-    const start = performance.now();
-    const step = (now) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = String(Math.round(target * eased));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-
-  if ('IntersectionObserver' in window) {
-    const countObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCount(entry.target);
-            countObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-    counters.forEach((c) => countObserver.observe(c));
-  } else {
-    counters.forEach(animateCount);
-  }
-
-  /* Affiche officielle en 3D interactive */
-  const poster = document.querySelector('.poster-frame');
-  if (poster && !reduceMotion && window.matchMedia('(hover: hover)').matches) {
-    poster.addEventListener('mousemove', (e) => {
-      const r = poster.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width;
-      const y = (e.clientY - r.top) / r.height;
-      poster.classList.add('tilt-active');
-      poster.style.animation = 'none';
-      poster.style.opacity = '1';
-      poster.style.transform = `perspective(1000px) rotateY(${(x - 0.5) * 12}deg) rotateX(${(0.5 - y) * 10}deg) scale(1.02)`;
-      poster.style.setProperty('--glare-x', `${x * 100}%`);
-      poster.style.setProperty('--glare-y', `${y * 100}%`);
-    });
-    poster.addEventListener('mouseleave', () => {
-      poster.classList.remove('tilt-active');
-      poster.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
-      poster.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
-    });
-  }
 
   /* ==========================================================================
      3. NAVIGATION, GALERIE & PROGRAMME
