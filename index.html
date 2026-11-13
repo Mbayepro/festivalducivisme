@@ -11,6 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Intro cinématique : activée uniquement si JS est disponible, une fois par session,
+       et jamais si l'utilisateur a demandé moins d'animations. Sécurité : retrait auto après 4 s. -->
+  <script>
+    (function () {
+      try {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduce && !sessionStorage.getItem('fc-intro-vue')) {
+          var root = document.documentElement;
+          root.classList.add('intro-playing');
+          setTimeout(function () { root.classList.remove('intro-playing'); }, 4000);
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 

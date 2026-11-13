@@ -731,3 +731,214 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+/* ==========================================================================
+   PACK « EFFET WAOUH » (JavaScript natif, aucune librairie)
+   1. Intro cinématique (logo + lettres + rideau) — une fois par session
+   2. Explosion de confettis aux couleurs du festival quand « Civisme » apparaît
+   3. Projecteur lumineux qui suit la souris dans le hero (ordinateur)
+   4. Inclinaison 3D + reflet holographique sur l'affiche et les cartes
+   5. Boutons magnétiques + onde lumineuse au clic
+   ========================================================================== */
+(function () {
+  const root = document.documentElement;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const isMobile = window.innerWidth <= 768;
+
+  if (reduceMotion) {
+    root.classList.remove('intro-playing');
+    return;
+  }
+
+  /* ---------- 2. Confettis (canvas, ~2,5 s puis suppression) ---------- */
+  function launchConfetti() {
+    const target = document.querySelector('.hero-word-civisme');
+    if (!target) return;
+    const rect = target.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return; // hors écran : inutile
+
+    const canvas = document.createElement('canvas');
+    canvas.className = 'fc-confetti-canvas';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.scale(dpr, dpr);
+
+    const originX = rect.left + rect.width / 2;
+    const originY = rect.top + rect.height / 2;
+    const colors = ['#4ea832', '#6ee755', '#38bdf8', '#ffffff', '#facc15', '#ecfdf5'];
+    const count = isMobile ? 70 : 150;
+    const pieces = [];
+
+    for (let i = 0; i < count; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 4 + Math.random() * 9;
+      pieces.push({
+        x: originX,
+        y: originY,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 4,
+        size: 4 + Math.random() * 6,
+        rot: Math.random() * Math.PI,
+        vr: (Math.random() - 0.5) * 0.3,
+        color: colors[(Math.random() * colors.length) | 0],
+        round: Math.random() < 0.35
+      });
+    }
+
+    const start = performance.now();
+    const duration = 2600;
+
+    function frame(now) {
+      const t = now - start;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      ctx.globalAlpha = Math.max(0, 1 - t / duration);
+      pieces.forEach((p) => {
+        p.vy += 0.22;      // gravité
+        p.vx *= 0.985;     // résistance de l'air
+        p.vy *= 0.985;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.vr;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        if (p.round) {
+          ctx.beginPath();
+          ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+        }
+        ctx.restore();
+      });
+      if (t < duration) requestAnimationFrame(frame);
+      else canvas.remove();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* Le mot « Civisme » atterrit ~1 s après le démarrage des animations du hero */
+  function startHeroShow() {
+    setTimeout(launchConfetti, 1000);
+  }
+
+  /* ---------- 1. Intro cinématique ---------- */
+  if (root.classList.contains('intro-playing')) {
+    try { sessionStorage.setItem('fc-intro-vue', '1'); } catch (e) {}
+
+    const intro = document.createElement('div');
+    intro.className = 'fc-intro';
+    intro.setAttribute('aria-hidden', 'true');
+
+    /* Titre « Festi'Civisme » lettre par lettre (« Civisme » en vert) */
+    const word = "Festi'Civisme";
+    const letters = word.split('').map((ch, i) =>
+      `<span style="--i:${i}" class="${i >= 6 ? 'is-green' : ''}">${ch}</span>`
+    ).join('');
+
+    intro.innerHTML = `
+      <div class="fc-intro-panel top"></div>
+      <div class="fc-intro-panel bottom"></div>
+      <div class="fc-intro-center">
+        <div class="fc-intro-logo-wrap"><img src="logo.jpeg" alt="" class="fc-intro-logo" /></div>
+        <div class="fc-intro-title">${letters}</div>
+        <div class="fc-intro-sub">3ᵉ Édition • 2026</div>
+        <div class="fc-intro-bar"></div>
+      </div>`;
+    document.body.appendChild(intro);
+
+    /* Ouverture du rideau à 1,8 s puis lancement du hero */
+    setTimeout(() => {
+      intro.classList.add('is-leaving');
+      root.classList.remove('intro-playing');
+      startHeroShow();
+      setTimeout(() => intro.remove(), 1000);
+    }, 1800);
+  } else {
+    startHeroShow();
+  }
+
+  /* Les effets suivants ne concernent que les écrans avec souris */
+  if (!finePointer) return;
+
+  /* ---------- 3. Projecteur qui suit la souris ---------- */
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    const spot = document.createElement('div');
+    spot.className = 'hero-spotlight';
+    spot.setAttribute('aria-hidden', 'true');
+    hero.prepend(spot);
+    let raf = null;
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        spot.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    });
+  }
+
+  /* ---------- 4. Inclinaison 3D + reflet holographique ---------- */
+  function addTilt(container, moving, maxDeg) {
+    if (!container || !moving) return;
+    container.classList.add('fc-tilt');
+    const glare = document.createElement('span');
+    glare.className = 'fc-tilt-glare';
+    container.appendChild(glare);
+
+    container.addEventListener('mousemove', (e) => {
+      const r = container.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;   // 0 → 1
+      const py = (e.clientY - r.top) / r.height;
+      const rx = (0.5 - py) * maxDeg * 2;
+      const ry = (px - 0.5) * maxDeg * 2;
+      moving.style.transition = 'transform 0.12s ease-out';
+      moving.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
+      glare.style.setProperty('--gx', `${px * 100}%`);
+      glare.style.setProperty('--gy', `${py * 100}%`);
+    });
+
+    container.addEventListener('mouseleave', () => {
+      moving.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      moving.style.transform = '';
+    });
+  }
+
+  const poster = document.querySelector('.poster-frame');
+  addTilt(poster, poster && poster.querySelector('.poster-img'), 9);
+  document.querySelectorAll('.action-card').forEach((card) => addTilt(card, card, 6));
+
+  /* ---------- 5. Boutons magnétiques + onde au clic ---------- */
+  document.querySelectorAll('.hero-actions .btn, .nav-cta .btn').forEach((btn) => {
+    btn.classList.add('fc-magnetic');
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      btn.style.transform = `translate(${dx * 0.25}px, ${dy * 0.35}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+
+  document.querySelectorAll('.btn-primary').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const r = btn.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'fc-ripple';
+      ripple.style.left = `${e.clientX - r.left}px`;
+      ripple.style.top = `${e.clientY - r.top}px`;
+      btn.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 700);
+    });
+  });
+})();
