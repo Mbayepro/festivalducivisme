@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administration Pass Citoyen | Festi'Civisme 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #1a56db;
+      --blue-dark: #103896;
+      --blue-soft: #eef4ff;
+      --green: #429e25;
+      --green-dark: #2f7519;
+      --green-soft: #edf9e8;
+      --dark: #070d19;
+      --dark-2: #101b33;
+      --surface: #ffffff;
+      --bg-alt: #f5f7fb;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border: #e2e8f0;
+      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-alt);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Écran de connexion (Protection par mot de passe de démo) */
+    .login-screen {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #070d19 0%, #0e2042 60%, #0e291d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-screen[hidden] {
+      display: none !important;
+    }
+
+    .login-card {
+      background: var(--surface);
+      width: 100%;
+      max-width: 420px;
+      border-radius: 20px;
+      padding: 34px 28px;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .login-logo {
+      width: 82px;
+      height: 66px;
+      object-fit: contain;
+      background: #000000;
+      padding: 4px;
+      border-radius: 12px;
+      border: 2px solid var(--green);
+      margin: 0 auto 14px;
+    }
+
+    .login-card h1 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .login-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .login-field {
+      text-align: left;
+      margin-bottom: 14px;
+    }
+
+    .login-field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .login-field input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+    }
+
+    .login-field input:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+
+    .login-error {
+      display: block;
+      min-height: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #dc2626;
+      margin-top: 6px;
+    }
+
+    .demo-hint {
+      margin-top: 16px;
+      padding: 10px 12px;
+      background: var(--blue-soft);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: var(--blue-dark);
+    }
+
+    .back-site-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .back-site-link:hover {
+      color: var(--blue);
+    }
+
+    /* Tableau de bord Admin */
+    .admin-dashboard[hidden] {
+      display: none !important;
+    }
+
+    .admin-header {
+      background: var(--dark);
+      color: #ffffff;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .admin-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .admin-brand img {
+      width: 54px;
+      height: 44px;
+      object-fit: contain;
+      background: #000000;
+      padding: 2px;
+      border-radius: 8px;
+      border: 1.5px solid var(--green);
+    }
+
+    .admin-brand h2 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .admin-brand span {
+      display: block;
+      font-size: 0.76rem;
+      color: #86efac;
+    }
+
+    .admin-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      transition: all 0.18s ease;
+    }
+
+    .btn-block {
+      width: 100%;
+      padding: 12px 18px;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .btn-ghost-light {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    .btn-ghost-light:hover {
+      background: #ffffff;
+      color: var(--dark);
+    }
+
+    /* Section Compteurs (Total & Répartition par programme) */
+    .admin-main {
+      padding: 32px 0 60px;
+    }
+
+    .stats-section-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--dark);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    }
+
+    .stat-card.total-card {
+      background: linear-gradient(135deg, #070d19 0%, #102347 100%);
+      color: #ffffff;
+      border-color: var(--blue);
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .stat-card.total-card .stat-label {
+      color: #86efac;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--dark);
+    }
+
+    .stat-card.total-card .stat-number {
+      color: #ffffff;
+    }
+
+    .stat-sub {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .stat-card.total-card .stat-sub {
+      color: #cbd5e1;
+    }
+
+    /* Barre d'outils au-dessus du tableau */
+    .toolbar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-filters {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+
+    .search-input,
+    .filter-select {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-alt);
+    }
+
+    .search-input {
+      min-width: 240px;
+      flex: 1;
+      max-width: 340px;
+    }
+
+    .toolbar-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Tableau des inscrits */
+    .table-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    thead {
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    th {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 14px 16px;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    tbody tr:hover {
+      background: var(--bg-alt);
+    }
+
+    .code-pill {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 800;
+      background: var(--blue-soft);
+      color: var(--blue-dark);
+      padding: 4px 9px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .prog-pill {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .empty-state {
+      padding: 44px 20px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .toolbar-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .search-input {
+        max-width: 100%;
+      }
+      .toolbar-buttons {
+        justify-content: stretch;
+      }
+      .toolbar-buttons .btn {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. ÉCRAN DE CONNEXION ADMIN -->
+  <section class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <img src="logo.jpeg" alt="Logo Festi'Civisme" class="login-logo" />
+      <h1>Espace Administration</h1>
+      <p>Gestion des Pass Citoyens — Festi'Civisme 2026</p>
+
+      <form id="adminLoginForm" novalidate>
+        <div class="login-field">
+          <label for="adminPassword">Mot de passe administrateur</label>
+          <input type="password" id="adminPassword" placeholder="Saisissez le mot de passe" required />
+          <span class="login-error" id="loginError" role="alert"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+      </form>
+
+      <div class="demo-hint">
+        Mot de passe de démo : <strong>festicivisme2026</strong>
+      </div>
+
+      <a href="index.html" class="back-site-link">← Retour au site public</a>
+    </div>
+  </section>
+
+  <!-- 2. TABLEAU DE BORD ADMINISTRATEUR -->
+  <div class="admin-dashboard" id="adminDashboard" hidden>
+    <header class="admin-header">
+      <div class="container admin-header-inner">
+        <div class="admin-brand">
+          <img src="logo.jpeg" alt="Festi'Civisme" />
+          <div>
+            <h2>Administration — Pass Citoyen</h2>
+            <span>3ᵉ Édition • 19–21 nov. 2026 • Yeumbeul Nord</span>
+          </div>
+        </div>
+        <div class="admin-top-actions">
+          <a href="index.html#inscription" class="btn btn-ghost-light">← Site public</a>
+          <button type="button" class="btn btn-ghost-light" id="logoutBtn">Déconnexion</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container admin-main">
+      <h3 class="stats-section-title">Vue d'ensemble & Répartition par programme</h3>
+
+      <!-- Compteurs dynamiques -->
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card total-card">
+          <span class="stat-label">Total d'inscrits</span>
+          <strong class="stat-number" id="totalCount">0</strong>
+          <span class="stat-sub">Pass Citoyens délivrés</span>
+        </div>
+        <!-- Les compteurs par programme sont injectés dynamiquement par JS -->
+      </div>
+
+      <!-- Barre d'actions : recherche, filtre, données de démo et export CSV -->
+      <div class="toolbar-card">
+        <div class="toolbar-filters">
+          <input type="search" id="searchInput" class="search-input" placeholder="Rechercher un nom, téléphone, n° pass, quartier..." />
+          <select id="progFilterSelect" class="filter-select" aria-label="Filtrer par programme">
+            <option value="all">Tous les programmes</option>
+            <option value="Formation Gratuite - Entrepreneuriat & Métiers Urbains">Formation Gratuite (Jeunes)</option>
+            <option value="Volontaire - Journée Set Setal (Nettoyage)">Journée de Set Setal (Nettoyage)</option>
+            <option value="Volontaire - Campagne de Reboisement">Campagne de Reboisement</option>
+            <option value="Atelier Graffiti & Arts Urbains">Atelier Graffiti & Arts Urbains</option>
+            <option value="Panel & Réseautage">Panels & Réseautage</option>
+          </select>
+        </div>
+
+        <div class="toolbar-buttons">
+          <button type="button" class="btn btn-outline" id="seedDemoBtn">
+            <span>+ Données de démo</span>
+          </button>
+          <button type="button" class="btn btn-primary" id="exportCsvBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span>Exporter en CSV (Excel)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tableau des inscrits -->
+      <div class="table-card">
+        <div class="table-responsive">
+          <table aria-label="Liste des inscrits au Pass Citoyen">
+            <thead>
+              <tr>
+                <th>Numéro Pass</th>
+                <th>Prénom & Nom</th>
+                <th>Téléphone / WhatsApp</th>
+                <th>Quartier / Commune</th>
+                <th>Programme choisi</th>
+                <th>Date d'inscription</th>
+              </tr>
+            </thead>
+            <tbody id="passesTableBody"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="emptyState" hidden>
+          Aucun inscrit trouvé dans le stockage local (<code>fdc_passes</code>).
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    /**
+     * ========================================================================
+     * ADMINISTRATION DES PASS CITOYENS — FESTI'CIVISME 2026
+     * ========================================================================
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      const STORAGE_KEY = 'fdc_passes';
+      const ADMIN_PASSWORD_DEMO = 'festicivisme2026'; // Mot de passe en dur (démo uniquement)
+      const SESSION_AUTH_KEY = 'fdc_admin_authenticated';
+
+      const PROGRAMMES_LIST = [
+        { key: 'Formation Gratuite - Entrepreneuriat & Métiers Urbains', shortLabel: 'Formation Gratuite (Jeunes)' },
+        { key: 'Volontaire - Journée Set Setal (Nettoyage)', shortLabel: 'Journée Set Setal (Nettoyage)' },
+        { key: 'Volontaire - Campagne de Reboisement', shortLabel: 'Campagne de Reboisement' },
+        { key: 'Atelier Graffiti & Arts Urbains', shortLabel: 'Atelier Graffiti & Arts Urbains' },
+        { key: 'Panel & Réseautage', shortLabel: 'Panels & Réseautage' }
+      ];
+
+      const loginScreen = document.getElementById('loginScreen');
+      const adminDashboard = document.getElementById('adminDashboard');
+      const adminLoginForm = document.getElementById('adminLoginForm');
+      const adminPasswordInput = document.getElementById('adminPassword');
+      const loginError = document.getElementById('loginError');
+      const logoutBtn = document.getElementById('logoutBtn');
+
+      const statsGrid = document.getElementById('statsGrid');
+      const passesTableBody = document.getElementById('passesTableBody');
+      const emptyState = document.getElementById('emptyState');
+      const searchInput = document.getElementById('searchInput');
+      const progFilterSelect = document.getElementById('progFilterSelect');
+      const exportCsvBtn = document.getElementById('exportCsvBtn');
+      const seedDemoBtn = document.getElementById('seedDemoBtn');
+
+      /**
+       * Lecture des inscrits depuis localStorage.
+       * TODO: Pour brancher Supabase plus tard en production, remplacer par :
+       * const { data, error } = await supabase
+       *   .from('fdc_passes')
+       *   .select('*')
+       *   .order('dateCreation', { ascending: false });
+       */
+      function getStoredPasses() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (err) {
+          console.error('Erreur de lecture localStorage:', err);
+          return [];
+        }
+      }
+
+      /* Gestion de l'authentification simple */
+      function showDashboard() {
+        loginScreen.setAttribute('hidden', '');
+        adminDashboard.removeAttribute('hidden');
+        renderDashboard();
+      }
+
+      if (sessionStorage.getItem(SESSION_AUTH_KEY) === '1') {
+        showDashboard();
+      }
+
+      adminLoginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = adminPasswordInput.value.trim();
+        if (val === ADMIN_PASSWORD_DEMO) {
+          sessionStorage.setItem(SESSION_AUTH_KEY, '1');
+          loginError.textContent = '';
+          showDashboard();
+        } else {
+          loginError.textContent = 'Mot de passe incorrect. Indice : festicivisme2026';
+        }
+      });
+
+      logoutBtn.addEventListener('click', () => {
+        sessionStorage.removeItem(SESSION_AUTH_KEY);
+        adminDashboard.setAttribute('hidden', '');
+        loginScreen.removeAttribute('hidden');
+        adminPasswordInput.value = '';
+      });
+
+      /* Formatage lisible de la date en français */
+      function formatDateFr(isoStr) {
+        if (!isoStr) return '—';
+        const d = new Date(isoStr);
+        if (isNaN(d.getTime())) return isoStr;
+        return d.toLocaleDateString('fr-FR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+      }
+
+      /* Échappement HTML de sécurité */
+      function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = String(str ?? '');
+        return div.innerHTML;
+      }
+
+      /* Rendu des compteurs et du tableau */
+      function renderDashboard() {
+        const allPasses = getStoredPasses();
+
+        /* 1. Compteurs en haut : Total + Répartition par programme */
+        const countsByProg = {};
+        PROGRAMMES_LIST.forEach((p) => {
+          countsByProg[p.key] = 0;
+        });
+
+        allPasses.forEach((pass) => {
+          const prog = pass.programme || '';
+          countsByProg[prog] = (countsByProg[prog] || 0) + 1;
+        });
+
+        let cardsHtml = `
+          <div class="stat-card total-card">
+            <span class="stat-label">Total d'inscrits</span>
+            <strong class="stat-number">${allPasses.length}</strong>
+            <span class="stat-sub">Pass Citoyens délivrés</span>
+          </div>
+        `;
+
+        PROGRAMMES_LIST.forEach((p) => {
+          const count = countsByProg[p.key] || 0;
+          cardsHtml += `
+            <div class="stat-card">
+              <span class="stat-label">${escapeHtml(p.shortLabel)}</span>
+              <strong class="stat-number">${count}</strong>
+              <span class="stat-sub">inscrit(s)</span>
+            </div>
+          `;
+        });
+
+        statsGrid.innerHTML = cardsHtml;
+
+        /* 2. Filtrage et affichage du tableau */
+        const query = searchInput.value.trim().toLowerCase();
+        const selectedProg = progFilterSelect.value;
+
+        const filtered = allPasses
+          .slice()
+          .reverse()
+          .filter((item) => {
+            const matchProg = selectedProg === 'all' || item.programme === selectedProg;
+            if (!matchProg) return false;
+            if (!query) return true;
+            const haystack = [
+              item.numero,
+              item.nom,
+              item.telephone,
+              item.quartier,
+              item.programme
+            ]
+              .join(' ')
+              .toLowerCase();
+            return haystack.includes(query);
+          });
+
+        if (filtered.length === 0) {
+          passesTableBody.innerHTML = '';
+          emptyState.removeAttribute('hidden');
+        } else {
+          emptyState.setAttribute('hidden', '');
+          passesTableBody.innerHTML = filtered
+            .map(
+              (item) => `
+              <tr>
+                <td><span class="code-pill">${escapeHtml(item.numero)}</span></td>
+                <td><strong>${escapeHtml(item.nom)}</strong></td>
+                <td>${escapeHtml(item.telephone)}</td>
+                <td>${escapeHtml(item.quartier)}</td>
+                <td><span class="prog-pill">${escapeHtml(item.programme)}</span></td>
+                <td>${escapeHtml(formatDateFr(item.dateCreation))}</td>
+              </tr>
+            `
+            )
+            .join('');
+        }
+      }
+
+      searchInput.addEventListener('input', renderDashboard);
+      progFilterSelect.addEventListener('change', renderDashboard);
+
+      /* Export en CSV (UTF-8 avec BOM pour Microsoft Excel) */
+      exportCsvBtn.addEventListener('click', () => {
+        const allPasses = getStoredPasses();
+        if (allPasses.length === 0) {
+          alert('Aucun inscrit à exporter pour le moment.');
+          return;
+        }
+
+        const headers = ['Numéro Pass', 'Prénom et Nom', 'Téléphone', 'Quartier / Commune', 'Programme', 'Date de création'];
+        const escapeCsvCell = (val) => `"${String(val ?? '').replace(/"/g, '""')}"`;
+
+        const rows = allPasses.map((p) =>
+          [
+            p.numero,
+            p.nom,
+            p.telephone,
+            p.quartier,
+            p.programme,
+            formatDateFr(p.dateCreation)
+          ]
+            .map(escapeCsvCell)
+            .join(';')
+        );
+
+        const csvContent = '\uFEFF' + [headers.map(escapeCsvCell).join(';'), ...rows].join('\r\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `FestiCivisme_2026_Inscrits_${new Date().toISOString().slice(0, 10)}.csv`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      });
+
+      /* Injection de quelques inscrits de démonstration pour tester l'interface devant le jury */
+      seedDemoBtn.addEventListener('click', () => {
+        const existing = getStoredPasses();
+        const demoSamples = [
+          {
+            numero: 'FDC-2026-4821',
+            nom: 'Moussa Diop',
+            telephone: '+221 77 412 89 30',
+            quartier: 'Yeumbeul Nord',
+            programme: 'Formation Gratuite - Entrepreneuriat & Métiers Urbains',
+            dateCreation: new Date(Date.now() - 86400000 * 2).toISOString()
+          },
+          {
+            numero: 'FDC-2026-7394',
+            nom: 'Fatou Bintou Ndiaye',
+            telephone: '+221 78 523 14 67',
+            quartier: 'Yeumbeul Nord ( Cité Comico )',
+            programme: 'Volontaire - Journée Set Setal (Nettoyage)',
+            dateCreation: new Date(Date.now() - 86400000).toISOString()
+          },
+          {
+            numero: 'FDC-2026-1956',
+            nom: 'Cheikh Tidiane Fall',
+            telephone: '+221 76 309 44 12',
+            quartier: 'Keur Massar',
+            programme: 'Volontaire - Campagne de Reboisement',
+            dateCreation: new Date(Date.now() - 3600000 * 5).toISOString()
+          },
+          {
+            numero: 'FDC-2026-6082',
+            nom: 'Aïssatou Sow',
+            telephone: '+221 70 845 21 90',
+            quartier: 'Yeumbeul Sud',
+            programme: 'Atelier Graffiti & Arts Urbains',
+            dateCreation: new Date().toISOString()
+          }
+        ];
+
+        const existingPhones = new Set(existing.map((p) => p.telephone));
+        let added = 0;
+        demoSamples.forEach((sample) => {
+          if (!existingPhones.has(sample.telephone)) {
+            existing.push(sample);
+            added++;
+          }
+        });
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+        renderDashboard();
+        if (added === 0) {
+          alert('Les inscrits de démonstration sont déjà présents dans la liste.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Festi'Civisme 2026 — 3ᵉ Édition | Festival du Civisme à Yeumbeul</title>
+  <meta name="description" content="Portail officiel du Festival du Civisme (Festi'Civisme) — 3ᵉ Édition du 19 au 21 novembre 2026 à Yeumbeul. Prom'Art Compagnie & FDCUIC : journées de Set Setal, reboisement et formations gratuites offertes aux jeunes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Barre de progression de lecture -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- BARRE SUPÉRIEURE -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-contact">
+        <a href="tel:+221763356026" class="topbar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Infoline : <strong>+221 76 335 60 26</strong> / <strong>77 675 35 94</strong></span>
+        </a>
+        <span class="topbar-sep"></span>
+        <a href="mailto:promartcompagnie94@gmail.com" class="topbar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>promartcompagnie94@gmail.com</span>
+        </a>
+      </div>
+
+      <div class="topbar-socials">
+        <a href="https://www.facebook.com/profile.php?id=61574910309164" target="_blank" rel="noopener" class="topbar-social-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/p/Dezh-A_l5G9/" target="_blank" rel="noopener" class="topbar-social-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          <span>Instagram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="#accueil" class="brand">
+        <img src="logo.jpeg" alt="Festi'Civisme" class="brand-logo-img" />
+        <div class="brand-info">
+          <span class="brand-name">Festi'<span>Civisme</span></span>
+          <span class="brand-tag">3ᵉ Édition • 19–21 Nov. 2026</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+        <a href="#accueil" class="nav-link active">Accueil</a>
+        <a href="#actions" class="nav-link">Actions</a>
+        <a href="#actualites" class="nav-link">Actualités</a>
+        <a href="#galerie" class="nav-link">Galerie</a>
+        <a href="#programme" class="nav-link">Programme</a>
+        <a href="#partenaires" class="nav-link">Partenaires</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#inscription" class="btn btn-primary btn-sm">
+          <span>Pass Citoyen</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="accueil">
+      <div class="hero-glow hero-glow-blue"></div>
+      <div class="hero-glow hero-glow-green"></div>
+      <div class="hero-grid-pattern"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-left reveal">
+          <div class="organizers-pill">
+            <img src="logos/promart.jpg" alt="Prom'Art Compagnie" class="org-mini-logo" />
+            <span class="org-divider"></span>
+            <img src="logos/fdcuic.jpg" alt="FDCUIC" class="org-mini-logo" />
+            <span class="org-label">Présentent la 3ᵉ Édition</span>
+          </div>
+
+          <h1 class="hero-title">
+            Festival du <span>Civisme</span>
+          </h1>
+
+          <p class="hero-slogan">
+            « Culture, environnement et citoyenneté : créons, engageons-nous et transformons notre communauté ! »
+          </p>
+
+          <p class="hero-summary">
+            À <strong>Yeumbeul</strong> et dans le département de Keur Massar, le Festi'Civisme agit sur le terrain à travers des <strong>journées de Set Setal (nettoyage)</strong>, des <strong>campagnes de reboisement</strong> et des <strong>formations gratuites offertes aux jeunes</strong>.
+          </p>
+
+          <div class="hero-key-facts">
+            <div class="fact-box">
+              <div class="fact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+              </div>
+              <div>
+                <span class="fact-label">Dates officielles</span>
+                <strong class="fact-value">19 au 21 Novembre 2026</strong>
+              </div>
+            </div>
+
+            <div class="fact-box">
+              <div class="fact-icon green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <span class="fact-label">Lieu</span>
+                <strong class="fact-value">Yeumbeul Nord, Dakar</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="countdown-strip" aria-live="polite">
+            <div class="countdown-label-col">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Ouverture dans :</span>
+            </div>
+            <div class="countdown-units">
+              <div class="cd-box"><strong id="cd-days">07</strong><span>Jours</span></div>
+              <div class="cd-box"><strong id="cd-hours">00</strong><span>Heures</span></div>
+              <div class="cd-box"><strong id="cd-minutes">00</strong><span>Min</span></div>
+              <div class="cd-box"><strong id="cd-seconds">00</strong><span>Sec</span></div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#inscription" class="btn btn-primary btn-lg">
+              <span>Obtenir mon Pass Citoyen</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <button type="button" class="btn btn-outline-light btn-lg" id="openPressKitBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>Dossier Partenaires</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-right reveal">
+          <div class="poster-frame">
+            <img src="affiche.jpg" alt="Affiche officielle Festi'Civisme 3ᵉ Édition - 19 au 21 Novembre 2026 à Yeumbeul" class="poster-img" />
+            <div class="poster-badge-float">
+              <span class="live-dot"></span>
+              <span>Édition 2026 • Yeumbeul</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ruban défilant continu (Marquee) des 7 activités officielles -->
+      <div class="marquee-bar" aria-label="Activités officielles du festival">
+        <div class="marquee-track">
+          <div class="marquee-group">
+            <span>FORMATION</span><i class="m-dot"></i>
+            <span>PANEL</span><i class="m-dot"></i>
+            <span>GRAFFITI</span><i class="m-dot"></i>
+            <span>REBOISEMENT</span><i class="m-dot"></i>
+            <span>SET SÉTTAL</span><i class="m-dot"></i>
+            <span>RÉSEAUTAGE</span><i class="m-dot"></i>
+            <span>CONCERT</span><i class="m-dot"></i>
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            <span>FORMATION</span><i class="m-dot"></i>
+            <span>PANEL</span><i class="m-dot"></i>
+            <span>GRAFFITI</span><i class="m-dot"></i>
+            <span>REBOISEMENT</span><i class="m-dot"></i>
+            <span>SET SÉTTAL</span><i class="m-dot"></i>
+            <span>RÉSEAUTAGE</span><i class="m-dot"></i>
+            <span>CONCERT</span><i class="m-dot"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANDEAU CHIFFRES CLÉS -->
+    <section class="metrics-bar">
+      <div class="container metrics-grid">
+        <div class="metric-item reveal">
+          <strong class="metric-value"><span data-count="3">0</span>ᵉ</strong>
+          <span>Édition officielle à Yeumbeul</span>
+        </div>
+        <div class="metric-item reveal">
+          <strong class="metric-value"><span data-count="18">0</span>+</strong>
+          <span>Partenaires & institutions engagés</span>
+        </div>
+        <div class="metric-item reveal">
+          <strong class="metric-value"><span data-count="100">0</span>%</strong>
+          <span>Formations gratuites pour les jeunes</span>
+        </div>
+        <div class="metric-item reveal">
+          <strong class="metric-value"><span data-count="7">0</span></strong>
+          <span>Activités au programme</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOS ACTIONS PERMANENTES -->
+    <section class="section actions-section" id="actions">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">ENGAGEMENT SUR LE TERRAIN • TOUTE L'ANNÉE</span>
+            <h2 class="section-title">Set Setal, Reboisement & Formations gratuites aux jeunes</h2>
+          </div>
+          <p class="section-desc">
+            Au-delà des 3 jours du festival, <strong>Prom'Art Compagnie</strong> et le <strong>FDCUIC</strong> organisent régulièrement à Yeumbeul des journées de nettoyage citoyen, des campagnes de reboisement et des ateliers pratiques gratuits.
+          </p>
+        </div>
+
+        <div class="actions-grid">
+          <!-- AXE 01 : SET SETAL -->
+          <article class="action-card reveal">
+            <div class="action-media-wrap">
+              <div class="action-main-photo" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (1).jpeg" data-lightbox-caption="Journée de Set Setal du Festi'Civisme : mobilisation des jeunes volontaires avec l'UCG">
+                <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (1).jpeg" alt="Volontaire du Festi'Civisme en gilet UCG lors d'une journée de Set Setal" class="action-hero-img" id="actionImgSetSetal" />
+                <span class="action-photo-badge green">Action Citoyenne • Avec l'UCG</span>
+                <span class="action-num-overlay">01</span>
+              </div>
+              <div class="action-thumbs" aria-label="Photos des journées de Set Setal">
+                <button type="button" class="action-thumb active" data-target-img="actionImgSetSetal" data-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (1).jpeg" data-caption="Journée de Set Setal : mobilisation avec l'UCG">
+                  <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (1).jpeg" alt="Set Setal UCG" />
+                </button>
+                <button type="button" class="action-thumb" data-target-img="actionImgSetSetal" data-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (4).jpeg" data-caption="Binôme de jeunes volontaires engagés lors du Set Setal">
+                  <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (4).jpeg" alt="Binôme volontaires Set Setal" />
+                </button>
+                <button type="button" class="action-thumb" data-target-img="actionImgSetSetal" data-src="logos/WhatsApp Image 2026-11-12 at 23.23.14.jpeg" data-caption="Collecte des déchets plastiques par les jeunes volontaires">
+                  <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14.jpeg" alt="Ramassage des déchets" />
+                </button>
+                <button type="button" class="action-thumb" data-target-img="actionImgSetSetal" data-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (3).jpeg" data-caption="Sacs de collecte remplis lors de l'opération d'assainissement">
+                  <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (3).jpeg" alt="Sacs de collecte Set Setal" />
+                </button>
+              </div>
+            </div>
+
+            <div class="action-card-body">
+              <div class="action-card-top">
+                <div class="action-icon green">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+                </div>
+                <span class="action-kicker">SALUBRITÉ & CADRE DE VIE</span>
+              </div>
+              <h3>Journées de Set Setal (Nettoyage)</h3>
+              <p>
+                Opérations régulières de nettoyage, de ramassage des déchets plastiques et d'assainissement menées par les jeunes volontaires en synergie avec l'<strong>UCG</strong> et le <strong>Collectif des Volontaires du Sénégal</strong>.
+              </p>
+              <ul class="action-highlights">
+                <li>Dotation en gants, gilets et sacs de collecte</li>
+                <li>Sensibilisation de proximité dans les quartiers</li>
+              </ul>
+              <a href="#inscription" class="action-link" data-preselect="Volontaire - Journée Set Setal (Nettoyage)">
+                <span>Rejoindre l'équipe Set Setal</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- AXE 02 : FORMATIONS OFFERTES AUX JEUNES -->
+          <article class="action-card reveal">
+            <div class="action-media-wrap">
+              <div class="action-main-photo" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (3).jpeg" data-lightbox-caption="Formation gratuite offerte aux jeunes : module « Comment rédiger un projet ? »">
+                <img src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (3).jpeg" alt="Atelier de formation gratuite aux jeunes : Comment rédiger un projet" class="action-hero-img" id="actionImgFormation" />
+                <span class="action-photo-badge blue">100% Gratuit • Avec DKS</span>
+                <span class="action-num-overlay">02</span>
+              </div>
+              <div class="action-thumbs" aria-label="Photos des formations offertes aux jeunes">
+                <button type="button" class="action-thumb active" data-target-img="actionImgFormation" data-src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (3).jpeg" data-caption="Module projeté : « Comment rédiger un projet ? »">
+                  <img src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (3).jpeg" alt="Module Comment rédiger un projet" />
+                </button>
+                <button type="button" class="action-thumb" data-target-img="actionImgFormation" data-src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (1).jpeg" data-caption="Formation au Plan économique et budget global avec Dunia Kato Sénégal (DKS)">
+                  <img src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (1).jpeg" alt="Plan économique et budget" />
+                </button>
+                <button type="button" class="action-thumb" data-target-img="actionImgFormation" data-src="logos/WhatsApp Image 2026-11-12 at 23.23.16.jpeg" data-caption="Travail de groupe pratique des jeunes participants et participantes">
+                  <img src="logos/WhatsApp Image 2026-11-12 at 23.23.16.jpeg" alt="Travail de groupe jeunes" />
+                </button>
+                <button type="button" class="action-thumb" data-target-img="actionImgFormation" data-src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (4).jpeg" data-caption="Accompagnement méthodologique et restitution des projets">
+                  <img src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (4).jpeg" alt="Vue d'ensemble formation" />
+                </button>
+              </div>
+            </div>
+
+            <div class="action-card-body">
+              <div class="action-card-top">
+                <div class="action-icon blue">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <span class="action-kicker">CAPACITATION & EMPLOI</span>
+              </div>
+              <h3>Formations Offertes aux Jeunes</h3>
+              <p>
+                Sessions de formation gratuites organisées avec <strong>Dunia Kato Sénégal (DKS)</strong> et <strong>Social Change Factory</strong> pour outiller concrètement les jeunes porteurs d'initiatives à Yeumbeul.
+              </p>
+              <ul class="action-highlights">
+                <li>Montage & rédaction de projet (« Comment rédiger un projet ? »)</li>
+                <li>Plan économique, budgétisation & entrepreneuriat culturel</li>
+              </ul>
+              <a href="#inscription" class="action-link" data-preselect="Formation Gratuite - Entrepreneuriat & Métiers Urbains">
+                <span>S'inscrire aux formations gratuites</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- AXE 03 : REBOISEMENT & GRAFFITI CITOYEN -->
+          <article class="action-card reveal">
+            <div class="action-media-wrap">
+              <div class="action-main-photo" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (2).jpeg" data-lightbox-caption="Mobilisation écologique et citoyenne des jeunes du Festi'Civisme">
+                <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (2).jpeg" alt="Mobilisation écologique et reboisement du Festi'Civisme" class="action-hero-img" id="actionImgReboisement" />
+                <span class="action-photo-badge dark">Écologie & Arts Urbains</span>
+                <span class="action-num-overlay">03</span>
+              </div>
+              <div class="action-partner-strip">
+                <img src="logos/asergmv.jpg" alt="ASERGMV Grande Muraille Verte" title="ASERGMV - Agence Sénégalaise de la Reforestation et de la Grande Muraille Verte" />
+                <img src="logos/adansonia-green.jpg" alt="Adansonia Green" title="Adansonia Green" />
+                <img src="logos/little-green-dots.jpg" alt="Little Green Dots" title="Little Green Dots" />
+                <img src="logos/dafart.jpg" alt="Daf'Art" title="Daf'Art - Arts Urbains & Graffiti" />
+              </div>
+            </div>
+
+            <div class="action-card-body">
+              <div class="action-card-top">
+                <div class="action-icon dark">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-7l-2-2"/><path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z"/><path d="m14 14-2 2"/></svg>
+                </div>
+                <span class="action-kicker">ENVIRONNEMENT & CULTURE</span>
+              </div>
+              <h3>Reboisement & Fresques Graffiti</h3>
+              <p>
+                Plantation d'arbres dans les écoles et artères de Yeumbeul en partenariat avec l'<strong>ASERGMV (Grande Muraille Verte)</strong> et <strong>Adansonia Green</strong>, couplée à des fresques murales de sensibilisation.
+              </p>
+              <ul class="action-highlights">
+                <li>Reboisement urbain et suivi des plants avec les écoles</li>
+                <li>Fresques graffiti citoyennes et sensibilisation écologique</li>
+              </ul>
+              <a href="#inscription" class="action-link" data-preselect="Volontaire - Campagne de Reboisement">
+                <span>Participer au reboisement</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTUALITÉS & AUDIENCES -->
+    <section class="section news-section" id="actualites">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">PRÉPARATIFS OFFICIELS • 3ᵉ ÉDITION</span>
+            <h2 class="section-title">Audiences institutionnelles & Appels à mobilisation</h2>
+          </div>
+          <a href="https://www.facebook.com/profile.php?id=61574910309164" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+            <span>Suivre sur Facebook</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+
+        <!-- ACTUALITÉ 1 : MAIRE BABACAR NDAO -->
+        <article class="story-card reveal">
+          <div class="story-media story-media-dual">
+            <div class="photo-frame" data-lightbox-src="WhatsApp Image 2026-11-12 at 13.04.31.jpeg" data-lightbox-caption="Remise officielle du dossier de la 3ᵉ édition à Monsieur le Maire Babacar Ndao">
+              <img src="WhatsApp Image 2026-11-12 at 13.04.31.jpeg" alt="Remise du dossier de la 3ᵉ édition à M. Babacar Ndao, Maire de Yeumbeul Nord" class="story-img" />
+              <span class="photo-caption">Remise officielle du dossier de la 3ᵉ édition à Monsieur le Maire Babacar Ndao</span>
+            </div>
+            <div class="photo-frame" data-lightbox-src="WhatsApp Image 2026-11-12 at 13.04.31 (1).jpeg" data-lightbox-caption="La délégation du Festival du Civisme lors des échanges à la Mairie de Yeumbeul Nord">
+              <img src="WhatsApp Image 2026-11-12 at 13.04.31 (1).jpeg" alt="Délégation du Festival du Civisme à la Mairie de Yeumbeul Nord" class="story-img" />
+              <span class="photo-caption">La délégation du Festival du Civisme lors des échanges à la Mairie de Yeumbeul Nord</span>
+            </div>
+          </div>
+
+          <div class="story-content">
+            <div class="story-meta">
+              <span class="badge-pill blue">Audience Municipale</span>
+              <span class="meta-loc">Mairie de Yeumbeul Nord • Keur Massar</span>
+            </div>
+
+            <h3>Réception par Monsieur Babacar Ndao, Maire de la commune de Yeumbeul Nord</h3>
+
+            <div class="story-paragraphs">
+              <p>
+                Nous avons eu le plaisir d’être reçus par <strong>Monsieur Babacar Ndao</strong>, Maire de la commune de Yeumbeul Nord, dans le cadre des préparatifs de la troisième édition du <strong>Festival du Civisme</strong>.
+              </p>
+              <p>
+                Cette rencontre, particulièrement riche en échanges et en perspectives, a permis de discuter des enjeux de cette nouvelle édition. Monsieur le Maire a manifesté son engagement et sa volonté de contribuer à la <strong>promotion du civisme à travers les arts et les cultures urbaines</strong>.
+              </p>
+              <p>
+                Nous adressons nos sincères remerciements à Monsieur le Maire ainsi qu’à toute son équipe de communication pour leur accueil, leur disponibilité et l’intérêt accordé à notre initiative.
+              </p>
+              <p class="story-quote">
+                Ensemble, faisons du Festival du Civisme un projet pérenne, fédérateur et porteur d’impact pour la commune de Yeumbeul Nord et l’ensemble du département de Keur Massar.
+              </p>
+            </div>
+
+            <div class="tag-list">
+              <span>#FestivalduCivisme</span>
+              <span>#Dakar2026</span>
+              <span>#Joj</span>
+              <span>#Culture</span>
+              <span>#FDCUIC</span>
+              <span>#Yeumbeul</span>
+              <span>#Sénégal</span>
+              <span>#Dakar</span>
+              <span>#Environnement</span>
+              <span>#Citoyenneté</span>
+            </div>
+
+            <div class="ministry-chips">
+              <span>Ministère de l’Emploi et de la Formation professionnelle</span>
+              <span>Ministère de la Jeunesse et des Sports - Sénégal</span>
+              <span>Ministère de la Culture</span>
+              <span>Ministère de l'Environnement et du Développement Durable</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ACTUALITÉ 2 : M. SADIA BODIANG -->
+        <article class="story-card reveal">
+          <div class="story-media story-media-balanced">
+            <div class="photo-frame" data-lightbox-src="rencontre.jpeg" data-lightbox-caption="Remise officielle de la présentation de la 3ᵉ édition à M. Sadia Bodiang à Yeumbeul Nord">
+              <img src="rencontre.jpeg" alt="Délégation du Festival du Civisme reçue par M. Sadia Bodiang à Yeumbeul Nord" class="story-img" />
+              <span class="photo-caption">Remise officielle de la présentation de la 3ᵉ édition à M. Sadia Bodiang à Yeumbeul Nord (cliquer pour agrandir)</span>
+            </div>
+
+            <div class="story-side-summary">
+              <span class="side-summary-title">AXES MAJEURS DES ÉCHANGES</span>
+              <div class="side-summary-grid">
+                <div class="side-summary-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Développement des jeunes & des femmes</span>
+                </div>
+                <div class="side-summary-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Protection de l'environnement & santé</span>
+                </div>
+                <div class="side-summary-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Valorisation des initiatives culturelles</span>
+                </div>
+                <div class="side-summary-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Éveil des consciences & civisme</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-content">
+            <div class="story-meta">
+              <span class="badge-pill green">Rencontre & Concertation</span>
+              <span class="meta-loc">Yeumbeul Nord</span>
+            </div>
+
+            <h3>Rencontre avec M. Sadia Bodiang, responsable politique de PASTEF à Yeumbeul Nord</h3>
+
+            <div class="story-paragraphs">
+              <p>
+                Dans le cadre des préparatifs de la troisième édition du <strong>Festival du Civisme</strong>, nous avons eu le plaisir d'être reçus par <strong>M. Sadia Bodiang</strong>, responsable politique de PASTEF à Yeumbeul Nord.
+              </p>
+              <p>
+                Partenaire de réflexion et conseiller précieux depuis la précédente édition, M. Sadia Bodiang est également pour nous un grand frère et une véritable référence, notamment pour son engagement en faveur de la <strong>protection de l’environnement</strong> et de la <strong>promotion de la santé</strong>.
+              </p>
+              <p>
+                Nos échanges ont été particulièrement enrichissants. Ils ont porté essentiellement sur les enjeux du <strong>développement des jeunes et des femmes</strong>, la <strong>valorisation des initiatives culturelles</strong> ainsi que l’<strong>éveil des consciences</strong> et le <strong>renforcement de l’engagement citoyen</strong> des populations.
+              </p>
+              <p class="story-quote">
+                Nous lui adressons nos sincères remerciements pour son accueil, ses précieux conseils et, surtout, pour sa contribution à la réussite de cet événement.
+              </p>
+            </div>
+
+            <div class="tag-list">
+              <span>#Culture</span>
+              <span>#Environnement</span>
+              <span>#Civisme</span>
+              <span>#Citoyenneté</span>
+              <span>#Education</span>
+              <span>#Art</span>
+            </div>
+
+            <div class="ministry-chips">
+              <span>Ministère de l'Éducation nationale du Sénégal</span>
+              <span>Ministère de la Jeunesse et des Sports - Sénégal</span>
+              <span>Ministère de l'Environnement et du Développement Durable</span>
+              <span>Ministère de la Culture</span>
+              <span>Ministère de l’Emploi et de la Formation professionnelle</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ACTUALITÉ 3 : APPEL VIDÉO BE FIRST (BLACK ROOM) -->
+        <article class="story-card reveal">
+          <div class="story-media story-media-balanced">
+            <div class="video-card-box">
+              <div class="video-card-top">
+                <span class="video-status-dot"></span>
+                <span>APPEL VIDÉO OFFICIEL</span>
+              </div>
+              <img src="logo.jpeg" alt="Festi'Civisme" class="video-card-logo" />
+              <div class="video-card-speaker">
+                <strong>Be First — Groupe Black Room</strong>
+                <span>Membre fondateur de Black Room, manager d'artistes & entrepreneur culturel</span>
+              </div>
+              <a href="https://www.facebook.com/share/v/1F27nSnT1i/" target="_blank" rel="noopener" class="video-launch-btn">
+                <span class="play-icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                </span>
+                <span>Regarder la vidéo sur Facebook</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="story-content">
+            <div class="story-meta">
+              <span class="badge-pill dark">Mobilisation Culturelle</span>
+              <span class="meta-loc">Message Vidéo</span>
+            </div>
+
+            <h3>Be First (Black Room) appelle les artistes, jeunes et acteurs politiques à se mobiliser</h3>
+
+            <div class="story-paragraphs">
+              <p>
+                <strong>Be First</strong>, membre fondateur du groupe <strong>Black Room</strong>, manager d'artistes et entrepreneur culturel, lance un appel à l'ensemble des <strong>artistes, acteurs culturels, jeunes et acteurs politiques</strong> à se mobiliser pour la troisième édition du <strong>Festival du Civisme</strong>.
+              </p>
+              <p>
+                Il invite toutes les forces vives de la communauté à prendre part à cet événement citoyen, culturel et fédérateur, et à apporter leur soutien à cette initiative qui place la <strong>jeunesse, la culture et la citoyenneté</strong> au cœur du développement.
+              </p>
+              <p class="story-quote">
+                Ensemble, mobilisons-nous pour promouvoir le civisme et construire une société plus engagée !
+              </p>
+            </div>
+
+            <div class="tag-list">
+              <span>#Dakar2026</span>
+              <span>#JOJ</span>
+              <span>#FestivalDuCivisme</span>
+              <span>#Culture</span>
+              <span>#Jeunesse</span>
+              <span>#Environnement</span>
+              <span>#Citoyenneté</span>
+              <span>#Civisme</span>
+            </div>
+
+            <div class="ministry-chips">
+              <span>Ministère de la Jeunesse et des Sports - Sénégal</span>
+              <span>Ministère de l'Environnement et du Développement Durable</span>
+              <span>Ministère de la Culture</span>
+              <span>Ministère de l'Éducation nationale du Sénégal</span>
+              <span>Casamançaise</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALERIE MÉDIATHÈQUE INTERACTIVE -->
+    <section class="section gallery-section" id="galerie">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">MÉDIATHÈQUE TERRAIN • YEUMBEUL</span>
+            <h2 class="section-title">En images : Formations, Set Setal & Audiences</h2>
+          </div>
+          <div class="gallery-filters" role="tablist">
+            <button class="gal-tab active" data-gal="all">Toutes (21)</button>
+            <button class="gal-tab" data-gal="formations">Formations Jeunes (11)</button>
+            <button class="gal-tab" data-gal="setsetal">Set Setal (5)</button>
+            <button class="gal-tab" data-gal="audiences">Audiences (3)</button>
+            <button class="gal-tab" data-gal="visuels">Affiches & Partenaires (2)</button>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- FORMATIONS OFFERTES AUX JEUNES (11 PHOTOS) -->
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (3).jpeg" data-lightbox-caption="Formation gratuite offerte aux jeunes : module « Comment rédiger un projet ? »">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (3).jpeg" alt="Formation Comment rédiger un projet" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Atelier : Comment rédiger un projet ?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (1).jpeg" data-lightbox-caption="Formation gratuite avec DKS : Plan économique (résumé) et budget global">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (1).jpeg" alt="Formation Plan économique et budget" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Plan économique & Budget (DKS)</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.16.jpeg" data-lightbox-caption="Travail de groupe mixte des jeunes participants lors de la formation gratuite">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.16.jpeg" alt="Travail de groupe jeunes" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Travail de groupe & Montage de projet</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (4).jpeg" data-lightbox-caption="Vue d'ensemble de l'atelier de formation offert aux jeunes du Festi'Civisme">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (4).jpeg" alt="Atelier de formation Festi'Civisme" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Session plénière de formation</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <!-- SET SETAL (5 PHOTOS) -->
+          <div class="gallery-item reveal" data-gal-cat="setsetal" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (1).jpeg" data-lightbox-caption="Journée de Set Setal : jeune volontaire en gilet UCG lors de l'opération de nettoyage">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (1).jpeg" alt="Volontaire Set Setal UCG" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Set Setal • Synergie UCG</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="setsetal" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (4).jpeg" data-lightbox-caption="Binôme de jeunes volontaires mobilisés pour l'assainissement et le Set Setal">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (4).jpeg" alt="Binôme volontaires Set Setal" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Mobilisation Jeunesse • Set Setal</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="setsetal" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.14.jpeg" data-lightbox-caption="Ramassage citoyen des déchets lors de la journée de Set Setal du Festi'Civisme">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14.jpeg" alt="Ramassage des déchets Set Setal" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Collecte citoyenne sur le terrain</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="setsetal" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (2).jpeg" data-lightbox-caption="Action de salubrité et protection de l'environnement par les volontaires">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (2).jpeg" alt="Volontaire nettoyage terrain" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Action Salubrité & Environnement</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="setsetal" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (3).jpeg" data-lightbox-caption="Collecte par sacs lors des journées de nettoyage Set Setal">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (3).jpeg" alt="Sacs de collecte Set Setal" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Assainissement communautaire</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <!-- AUDIENCES (3 PHOTOS) -->
+          <div class="gallery-item reveal" data-gal-cat="audiences" data-lightbox-src="WhatsApp Image 2026-11-12 at 13.04.31.jpeg" data-lightbox-caption="Audience à la Mairie de Yeumbeul Nord avec M. le Maire Babacar Ndao">
+            <img src="WhatsApp Image 2026-11-12 at 13.04.31.jpeg" alt="Maire Babacar Ndao" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Mairie de Yeumbeul Nord</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="audiences" data-lightbox-src="WhatsApp Image 2026-11-12 at 13.04.31 (1).jpeg" data-lightbox-caption="Délégation du Festival du Civisme en séance de travail à la Mairie">
+            <img src="WhatsApp Image 2026-11-12 at 13.04.31 (1).jpeg" alt="Délégation à la Mairie" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Échanges à la Mairie</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="audiences" data-lightbox-src="rencontre.jpeg" data-lightbox-caption="Rencontre avec M. Sadia Bodiang, responsable politique à Yeumbeul Nord">
+            <img src="rencontre.jpeg" alt="Rencontre M. Sadia Bodiang" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Rencontre M. Sadia Bodiang</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <!-- SUITE FORMATIONS JEUNES (7 PHOTOS) -->
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (1).jpeg" data-lightbox-caption="Atelier pratique de structuration de projet avec Dunia Kato Sénégal (DKS)">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (1).jpeg" alt="Atelier DKS Festi'Civisme" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Structuration de projet (DKS)</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (2).jpeg" data-lightbox-caption="Formateur animant le module de rédaction de projet pour les jeunes">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (2).jpeg" alt="Animation de la formation" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Encadrement & Méthodologie</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (4).jpeg" data-lightbox-caption="Jeunes participants attentifs lors de la session d'entrepreneuriat">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (4).jpeg" alt="Jeunes en formation" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Participation des jeunes</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (5).jpeg" data-lightbox-caption="Exercices pratiques sur la conception de projets communautaires et culturels">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.15 (5).jpeg" alt="Exercices pratiques formation" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Exercices pratiques en salle</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (2).jpeg" data-lightbox-caption="Séance de travail et échanges entre jeunes porteurs de projets">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (2).jpeg" alt="Échanges jeunes porteurs de projets" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Échanges & Réseautage jeunes</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (3).jpeg" data-lightbox-caption="Explications détaillées du formateur lors de l'atelier gratuit">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (3).jpeg" alt="Intervention du formateur" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Intervention pédagogique</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="formations" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.15.jpeg" data-lightbox-caption="Table ronde des jeunes participants lors des formations du Festi'Civisme">
+            <img src="logos/WhatsApp Image 2026-11-12 at 23.23.15.jpeg" alt="Table ronde formation jeunes" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Concertation & Apprentissage</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <!-- AFFICHES & PARTENAIRES (2 PHOTOS) -->
+          <div class="gallery-item reveal" data-gal-cat="visuels" data-lightbox-src="affiche.jpg" data-lightbox-caption="Affiche Officielle — 3ᵉ Édition Festi'Civisme (19–21 Nov. 2026)">
+            <img src="affiche.jpg" alt="Affiche Officielle 2026" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Affiche Officielle 2026</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal" data-gal-cat="visuels" data-lightbox-src="partenaires.jpg" data-lightbox-caption="Tableau officiel des partenaires du Festi'Civisme">
+            <img src="partenaires.jpg" alt="Partenaires officiels" loading="lazy" />
+            <div class="gallery-overlay">
+              <span>Tableau des Partenaires</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMME DES 3 JOURS -->
+    <section class="section programme-section" id="programme">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">19 AU 21 NOVEMBRE 2026 • YEUMBEUL NORD</span>
+            <h2 class="section-title">Programme officiel sur 3 jours</h2>
+          </div>
+          <div class="prog-filter-tabs" role="tablist">
+            <button class="prog-tab active" data-day="all">Les 3 Jours</button>
+            <button class="prog-tab" data-day="jour1">Jeudi 19 Nov.</button>
+            <button class="prog-tab" data-day="jour2">Vendredi 20 Nov.</button>
+            <button class="prog-tab" data-day="jour3">Samedi 21 Nov.</button>
+          </div>
+        </div>
+
+        <div class="programme-table">
+          <!-- JOUR 1 -->
+          <div class="prog-row reveal" data-day="jour1">
+            <div class="prog-date">
+              <span class="prog-step-num">JOUR 01</span>
+              <span class="prog-day-badge">Jeudi 19 Novembre 2026</span>
+              <strong>09h00 – 17h30</strong>
+              <span class="prog-loc-text">Yeumbeul Nord</span>
+            </div>
+
+            <div class="prog-thumb" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (4).jpeg" data-lightbox-caption="Ateliers de formation gratuits offerts aux jeunes du Festi'Civisme">
+              <img src="logos/WhatsApp Image 2026-11-12 at 23.23.16 (4).jpeg" alt="Formations gratuites aux jeunes" loading="lazy" />
+            </div>
+
+            <div class="prog-info">
+              <span class="prog-cat">FORMATION, PANEL D'OUVERTURE & RÉSEAUTAGE</span>
+              <h3>Formations gratuites aux jeunes, Panel citoyen & Réseautage</h3>
+              <p>Cérémonie officielle d'ouverture suivie des ateliers pratiques gratuits (« Comment rédiger un projet ? », plan économique & budgétisation avec DKS) et d'un panel sur l'engagement des jeunes et des femmes.</p>
+              <div class="prog-tags">
+                <span>Rédaction de projet</span>
+                <span>Plan économique</span>
+                <span>Panel citoyen</span>
+                <span>Réseautage</span>
+              </div>
+            </div>
+
+            <div class="prog-cta">
+              <a href="#inscription" class="btn btn-primary btn-sm" data-preselect="Formation Gratuite - Entrepreneuriat & Métiers Urbains">
+                <span>S'inscrire</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- JOUR 2 -->
+          <div class="prog-row reveal" data-day="jour2">
+            <div class="prog-date">
+              <span class="prog-step-num green">JOUR 02</span>
+              <span class="prog-day-badge green">Vendredi 20 Novembre 2026</span>
+              <strong>09h00 – 18h00</strong>
+              <span class="prog-loc-text">Écoles & Artères de Yeumbeul</span>
+            </div>
+
+            <div class="prog-thumb" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (2).jpeg" data-lightbox-caption="Actions environnementales et citoyennes sur le terrain à Yeumbeul">
+              <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (2).jpeg" alt="Campagne de reboisement et action écologique" loading="lazy" />
+            </div>
+
+            <div class="prog-info">
+              <span class="prog-cat green">REBOISEMENT, GRAFFITI & PANELS THÉMATIQUES</span>
+              <h3>Campagne de Reboisement, Fresques Graffiti & Panels</h3>
+              <p>Plantation d'arbres dans les établissements scolaires et espaces publics avec l'ASERGMV et Adansonia Green, création de fresques murales citoyennes et échanges sur l'écologie urbaine.</p>
+              <div class="prog-tags">
+                <span>Plantation d'arbres</span>
+                <span>ASERGMV & Adansonia Green</span>
+                <span>Fresques Graffiti</span>
+                <span>Sensibilisation</span>
+              </div>
+            </div>
+
+            <div class="prog-cta">
+              <a href="#inscription" class="btn btn-outline btn-sm" data-preselect="Volontaire - Campagne de Reboisement">
+                <span>Participer</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- JOUR 3 -->
+          <div class="prog-row reveal" data-day="jour3">
+            <div class="prog-date">
+              <span class="prog-step-num dark">JOUR 03</span>
+              <span class="prog-day-badge dark">Samedi 21 Novembre 2026</span>
+              <strong>08h30 – 23h00</strong>
+              <span class="prog-loc-text">Yeumbeul Nord</span>
+            </div>
+
+            <div class="prog-thumb" data-lightbox-src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (4).jpeg" data-lightbox-caption="Mobilisation des jeunes volontaires lors du Grand Set Setal">
+              <img src="logos/WhatsApp Image 2026-11-12 at 23.23.14 (4).jpeg" alt="Grande journée de Set Setal" loading="lazy" />
+            </div>
+
+            <div class="prog-info">
+              <span class="prog-cat dark">GRANDE JOURNÉE DE SET SETAL & CONCERT DE CLÔTURE</span>
+              <h3>Grand Set Setal Communautaire & Concert Citoyen de Clôture</h3>
+              <p>Dès 08h30, grande mobilisation de nettoyage et d'assainissement avec l'UCG et les volontaires dans les quartiers de Yeumbeul, suivie en soirée du grand concert de clôture réunissant les artistes engagés.</p>
+              <div class="prog-tags">
+                <span>Set Setal (Nettoyage)</span>
+                <span>Synergie UCG</span>
+                <span>Scène Urbaine</span>
+                <span>Grand Concert</span>
+              </div>
+            </div>
+
+            <div class="prog-cta">
+              <a href="#inscription" class="btn btn-outline btn-sm" data-preselect="Volontaire - Journée Set Setal (Nettoyage)">
+                <span>Rejoindre</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTENAIRES OFFICIELS -->
+    <section class="section partners-section" id="partenaires">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">ORGANISATEURS, PARTENAIRES & INSTITUTIONS</span>
+            <h2 class="section-title">Ils soutiennent le Festival du Civisme</h2>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" id="openPressKitTop">
+            <span>Devenir Partenaire</span>
+          </button>
+        </div>
+
+        <div class="organizers-banner reveal">
+          <div class="org-card">
+            <img src="logos/promart.jpg" alt="Prom'Art Compagnie" />
+            <div>
+              <span class="org-role">Structure Organisatrice</span>
+              <strong>Prom'Art Compagnie</strong>
+              <p>Direction & coordination générale du Festi'Civisme</p>
+            </div>
+          </div>
+          <div class="org-card">
+            <img src="logos/fdcuic.jpg" alt="FDCUIC" />
+            <div>
+              <span class="org-role">Partenaire Officiel</span>
+              <strong>FDCUIC</strong>
+              <p>Fonds de Développement des Cultures Urbaines et des Industries Créatives</p>
+            </div>
+          </div>
+          <div class="org-card">
+            <div class="mairie-badge">MYN</div>
+            <div>
+              <span class="org-role">Collectivité Hôte</span>
+              <strong>Mairie de Yeumbeul Nord</strong>
+              <p>Sous l'égide de Monsieur le Maire Babacar Ndao</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="partner-logos-grid reveal">
+          <div class="partner-logo-card">
+            <img src="logos/volontaires.jpg" alt="Collectif des Volontaires du Sénégal" />
+            <span>Collectif des Volontaires du Sénégal</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/cultures-croisees.jpg" alt="Cultures Croisées" />
+            <span>Cultures Croisées</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/casamancaise.jpg" alt="Casamançaise" />
+            <span>Casamançaise</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/mangosports.jpg" alt="MangoSports" />
+            <span>MangoSports</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/adansonia-green.jpg" alt="Adansonia Green" />
+            <span>Adansonia Green</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/dks.jpg" alt="Dunia Kato Sénégal (DKS)" />
+            <span>Dunia Kato Sénégal (DKS)</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/social-change-factory.jpg" alt="Social Change Factory" />
+            <span>Social Change Factory</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/asergmv.jpg" alt="ASERGMV - Grande Muraille Verte" />
+            <span>ASERGMV (Grande Muraille Verte)</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/dafart.jpg" alt="Daf'Art (DAC)" />
+            <span>Daf'Art (DAC)</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/batiment-sn.jpg" alt="Bâtiment.sn" />
+            <span>Bâtiment.sn</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/wil-prod.jpg" alt="Wil Prod" />
+            <span>Wil Prod</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/little-green-dots.jpg" alt="Little Green Dots" />
+            <span>Little Green Dots</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/yeumbeul-tv.jpg" alt="Yeumbeul TV" />
+            <span>Yeumbeul TV</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/we-management.jpg" alt="We Management.sn" />
+            <span>We Management.sn</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/acteurs-culturels-km.jpg" alt="Mouvement des Acteurs Culturels de Keur Massar" />
+            <span>Acteurs Culturels de Keur Massar</span>
+          </div>
+          <div class="partner-logo-card">
+            <img src="logos/tj.jpg" alt="Collectif TJ" />
+            <span>Collectif TJ</span>
+          </div>
+        </div>
+
+        <div class="ministries-strip reveal">
+          <h3 class="ministries-heading">Ministères & Institutions Associés</h3>
+          <div class="ministries-list">
+            <div class="ministry-item">
+              <span class="sn-bar"></span>
+              <strong>Ministère de la Jeunesse et des Sports</strong>
+            </div>
+            <div class="ministry-item">
+              <span class="sn-bar"></span>
+              <strong>Ministère de la Culture</strong>
+            </div>
+            <div class="ministry-item">
+              <span class="sn-bar"></span>
+              <strong>Ministère de l'Environnement et du Développement Durable</strong>
+            </div>
+            <div class="ministry-item">
+              <span class="sn-bar"></span>
+              <strong>Ministère de l'Éducation nationale</strong>
+            </div>
+            <div class="ministry-item">
+              <span class="sn-bar"></span>
+              <strong>Ministère de l’Emploi et de la Formation professionnelle</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GÉNÉRATEUR DE PASS CITOYEN & INSCRIPTION -->
+    <section class="section registration-section" id="inscription">
+      <div class="container reg-layout">
+        <div class="reg-left reveal">
+          <span class="eyebrow">ACCRÉDITATION & VOLONTARIAT</span>
+          <h2 class="section-title">Obtenez votre Pass Citoyen 2026</h2>
+          <p class="section-desc">
+            Inscrivez-vous aux <strong>formations gratuites offertes aux jeunes</strong> ou rejoignez nos équipes pour les journées de <strong>Set Setal</strong> et de <strong>reboisement</strong>. Votre badge nominatif est généré instantanément.
+          </p>
+
+          <div class="direct-contact-cards">
+            <a href="tel:+221763356026" class="contact-card-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <span>Infoline Officielle</span>
+                <strong>+221 76 335 60 26 / 77 675 35 94</strong>
+              </div>
+            </a>
+
+            <a href="mailto:promartcompagnie94@gmail.com" class="contact-card-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <span>Courriel Officiel</span>
+                <strong>promartcompagnie94@gmail.com</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="reg-right reveal">
+          <form id="civicRegistrationForm" class="reg-form" novalidate>
+            <div class="reg-form-head">
+              <h3>Formulaire d'inscription</h3>
+              <span class="edition-pill-live" data-dynamic-edition="3ᵉ Édition • 2026">3ᵉ Édition • 2026</span>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="fullName">Prénom et Nom *</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Ex: Moussa Diop" autocomplete="name" />
+                <span class="field-error" id="err-fullName" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Téléphone / WhatsApp *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Ex: +221 77 123 45 67" autocomplete="tel" />
+                <span class="field-error" id="err-phone" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="quartier">Quartier / Commune *</label>
+                <input type="text" id="quartier" name="quartier" required placeholder="Ex: Yeumbeul Nord, Keur Massar..." />
+                <span class="field-error" id="err-quartier" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="activitySelect">Programme souhaité *</label>
+                <select id="activitySelect" name="activitySelect" required>
+                  <option value="">-- Sélectionnez un programme --</option>
+                  <option value="Formation Gratuite - Entrepreneuriat & Métiers Urbains">Formation Gratuite (Jeunes)</option>
+                  <option value="Volontaire - Journée Set Setal (Nettoyage)">Journée de Set Setal (Nettoyage)</option>
+                  <option value="Volontaire - Campagne de Reboisement">Campagne de Reboisement</option>
+                  <option value="Atelier Graffiti & Arts Urbains">Atelier Graffiti & Arts Urbains</option>
+                  <option value="Panel & Réseautage">Panels & Réseautage</option>
+                </select>
+                <span class="field-error" id="err-activitySelect" role="alert"></span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">
+              <span>Générer mon Pass Citoyen</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="logo.jpeg" alt="Festi'Civisme" class="footer-logo" />
+          <div>
+            <h4>Festi'Civisme</h4>
+            <span>Festival du Civisme • 3ᵉ Édition</span>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Présenté par <strong>Prom'Art Compagnie</strong> et le <strong>FDCUIC</strong>. Du 19 au 21 novembre 2026 à Yeumbeul.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Actions</h5>
+        <ul>
+          <li><a href="#actions">Journées de Set Setal (Nettoyage)</a></li>
+          <li><a href="#actions">Campagnes de Reboisement</a></li>
+          <li><a href="#actions">Formations gratuites aux jeunes</a></li>
+          <li><a href="#programme">Panels, Graffiti & Concert</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact & Réseaux</h5>
+        <ul>
+          <li><strong>Infoline :</strong> +221 76 335 60 26 / 77 675 35 94</li>
+          <li><strong>Email :</strong> promartcompagnie94@gmail.com</li>
+          <li><strong>Lieu :</strong> Yeumbeul Nord, Keur Massar, Dakar</li>
+          <li>
+            <a href="https://www.facebook.com/profile.php?id=61574910309164" target="_blank" rel="noopener">Facebook Officiel</a> •
+            <a href="https://www.instagram.com/p/Dezh-A_l5G9/" target="_blank" rel="noopener">Instagram</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 Festival du Civisme (Festi'Civisme) — Prom'Art Compagnie.</span>
+      <div class="footer-meta-links">
+        <label for="editionSwitcher" class="edition-switcher-label">Édition :</label>
+        <select id="editionSwitcher" class="edition-switcher" aria-label="Choisir l'édition annuelle du festival">
+          <option value="2024">1ʳᵉ Édition • 2024 (Archives)</option>
+          <option value="2025">2ᵉ Édition • 2025 (Archives)</option>
+          <option value="2026" selected>3ᵉ Édition • 19–21 Nov. 2026</option>
+          <option value="2027">4ᵉ Édition • Nov. 2027 (À venir)</option>
+        </select>
+        <span class="footer-sep">•</span>
+        <a href="admin.html" class="admin-footer-link">Espace Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOUTON FLOTTANT WHATSAPP / INFOLINE -->
+  <a href="https://wa.me/221763356026" target="_blank" rel="noopener" class="floating-wa" aria-label="Contacter l'infoline sur WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <span>Infoline Directe</span>
+  </a>
+
+  <!-- MODALE BADGE VERTICAL : PASS CITOYEN 2026 -->
+  <div class="modal-backdrop pass-modal-backdrop" id="passModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="passModalTitle">
+    <div class="pass-modal-container">
+      <button type="button" class="pass-modal-close" id="closePassModalBtn" aria-label="Fermer la fenêtre du pass">✕</button>
+
+      <!-- Bandeau d'information (nouvel inscrit ou pass existant retrouvé) -->
+      <div class="pass-status-banner" id="passStatusBanner" role="status">
+        <span id="passStatusText">Votre Pass Citoyen est prêt !</span>
+      </div>
+
+      <!-- CARTE VERTICALE STYLE GRAND FESTIVAL (Cible html2canvas & impression) -->
+      <div class="v-badge" id="festivalBadgeCard">
+        <div class="v-badge-lanyard" aria-hidden="true">
+          <span class="v-lanyard-hole"></span>
+        </div>
+
+        <div class="v-badge-top">
+          <img src="logo.jpeg" alt="Logo Festi'Civisme" class="v-badge-logo" id="badgeLogoImg" />
+          <span class="v-badge-title" id="passModalTitle">PASS CITOYEN 2026</span>
+          <span class="v-badge-dates" id="badgeDatesText">19–21 nov. 2026 • Yeumbeul Nord</span>
+        </div>
+
+        <div class="v-badge-body">
+          <div class="v-badge-holder">
+            <span class="v-field-label">PARTICIPANT(E)</span>
+            <strong class="v-holder-name" id="badgeName">—</strong>
+          </div>
+
+          <div class="v-badge-grid">
+            <div class="v-badge-item">
+              <span class="v-field-label">QUARTIER / COMMUNE</span>
+              <strong id="badgeQuartier">—</strong>
+            </div>
+            <div class="v-badge-item">
+              <span class="v-field-label">PROGRAMME CHOISI</span>
+              <strong class="v-prog-highlight" id="badgeActivity">—</strong>
+            </div>
+          </div>
+
+          <!-- QR Code généré via qrcodejs -->
+          <div class="v-badge-qr-section">
+            <div class="v-qr-box" id="badgeQrContainer" aria-label="QR Code du Pass Citoyen"></div>
+            <div class="v-serial-wrap">
+              <span class="v-field-label">N° D'ACCRÉDITATION UNIQUE</span>
+              <strong class="v-badge-serial" id="badgeCode">FDC-2026-0000</strong>
+              <span class="v-badge-valid-pill">ACCRÉDITATION OFFICIELLE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="v-badge-footer">
+          <span>PROM'ART COMPAGNIE & FDCUIC</span>
+          <span>ENTRÉE GRATUITE</span>
+        </div>
+      </div>
+
+      <!-- 3 ACTIONS SOUS LE BADGE -->
+      <div class="pass-modal-actions">
+        <button type="button" class="btn btn-primary pass-action-btn" id="downloadPassPngBtn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          <span>Télécharger en image</span>
+        </button>
+
+        <a href="#" target="_blank" rel="noopener" class="btn pass-wa-btn pass-action-btn" id="sharePassWaBtn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>Partager sur WhatsApp</span>
+        </a>
+
+        <button type="button" class="btn btn-outline-light pass-action-btn" id="printPassBtn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+          <span>Imprimer</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALE DOSSIER PARTENAIRES -->
+  <div class="modal-backdrop" id="pressKitModal" hidden aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="eyebrow">PARTENARIAT & SPONSORING</span>
+          <h3>Festi'Civisme — 3ᵉ Édition (19 au 21 Novembre 2026)</h3>
+        </div>
+        <button type="button" class="modal-close" id="closePressKitBtn" aria-label="Fermer">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-intro">
+          Organisé par <strong>Prom'Art Compagnie</strong> avec le <strong>FDCUIC</strong>, le Festival du Civisme mobilise la jeunesse autour de formations gratuites, de journées de Set Setal, de reboisement, de panels et d'arts urbains à Yeumbeul.
+        </p>
+        <div class="modal-contact-box">
+          <div>
+            <span>Infoline Partenariats :</span>
+            <strong>+221 76 335 60 26 / 77 675 35 94</strong>
+          </div>
+          <div>
+            <span>Email :</span>
+            <strong>promartcompagnie94@gmail.com</strong>
+          </div>
+        </div>
+        <img src="partenaires.jpg" alt="Grille officielle des partenaires du Festi'Civisme" class="modal-partners-sheet" />
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX PLEIN ÉCRAN POUR GALERIE ET PHOTOS -->
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fermer l'image">✕</button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightboxImg" />
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <!-- Librairies CDNJS : qrcodejs & html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
