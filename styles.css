@@ -41,6 +41,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -51,6 +53,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 img {
@@ -2165,6 +2168,72 @@ ul {
 }
 
 /* ==========================================================================
+   BOUTONS "VOIR PLUS / VOIR MOINS" & CONTACTS MENU MOBILE
+   ========================================================================== */
+.hero-intro-wrap {
+  margin-bottom: 18px;
+}
+
+.readmore-box[hidden] {
+  display: none !important;
+}
+
+.readmore-box {
+  animation: fadeExpand 0.25s ease-out;
+}
+
+@keyframes fadeExpand {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.readmore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(110, 231, 85, 0.14);
+  border: 1px solid rgba(110, 231, 85, 0.4);
+  color: #86efac;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 13px;
+  border-radius: 99px;
+  cursor: pointer;
+  margin-bottom: 14px;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.readmore-btn:hover {
+  background: rgba(110, 231, 85, 0.26);
+  color: #ffffff;
+}
+
+.readmore-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.readmore-btn.is-open svg {
+  transform: rotate(180deg);
+}
+
+.hero-readmore {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.mobile-nav-contacts {
+  display: none;
+}
+
+/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -2187,40 +2256,234 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Masquer la barre supérieure encombrante au-dessus du logo sur mobile */
+  .topbar {
+    display: none;
+  }
+
+  /* Header & Logo compacts sans chevauchement avec "Pass Citoyen" */
+  .nav-container {
+    height: 64px;
+    gap: 8px;
+  }
+
+  .brand {
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .brand-logo-img {
+    width: 44px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .brand-info {
+    min-width: 0;
+  }
+
+  .brand-name {
+    font-size: 1.08rem;
+    white-space: nowrap;
+  }
+
+  .brand-tag {
+    display: block;
+    font-size: 0.65rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-cta {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .nav-cta .btn-sm {
+    padding: 7px 11px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    border-radius: 8px;
+  }
+
+  .nav-cta .btn-sm svg {
+    display: none;
+  }
+
   .main-nav {
     position: fixed;
-    top: 76px;
+    top: 64px;
     left: 0;
     right: 0;
-    background: #0c2244;
+    background: #0b1f3f;
     flex-direction: column;
-    padding: 18px;
+    align-items: stretch;
+    padding: 16px;
     border-bottom: 1px solid rgba(110, 231, 85, 0.35);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     display: none;
+    gap: 4px;
   }
 
   .main-nav.open {
     display: flex;
   }
 
+  .mobile-nav-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .mobile-nav-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: #93c5fd;
+  }
+
   .mobile-menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hero responsive sans aucun débordement horizontal */
+  .hero {
+    padding-top: 24px;
+  }
+
+  .hero-grid {
+    gap: 26px;
+    padding-bottom: 32px;
+  }
+
+  .organizers-pill {
+    padding: 5px 10px;
+    gap: 7px;
+    margin-bottom: 14px;
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .org-mini-logo {
+    height: 22px;
+  }
+
+  .org-label {
+    font-size: 0.68rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 7.8vw, 2.5rem);
+    margin-bottom: 12px;
+  }
+
+  .hero-slogan {
+    font-size: 0.95rem;
+    padding-left: 11px;
+    margin-bottom: 10px;
+  }
+
+  .hero-summary {
+    font-size: 0.88rem;
+    margin-bottom: 12px;
   }
 
   .hero-key-facts,
   .form-row,
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .countdown-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .countdown-units {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    width: 100%;
+  }
+
+  .cd-box {
+    min-width: 0;
+    padding: 6px 4px;
+  }
+
+  .cd-box strong {
+    font-size: 1.02rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    padding: 13px 18px;
+  }
+
+  /* Sections & Cartes sur mobile */
+  .section {
+    padding: 52px 0;
+  }
+
+  .section-head {
+    margin-bottom: 26px;
+    gap: 14px;
+  }
+
+  .action-main-photo {
+    height: 200px;
+  }
+
+  .action-card-body {
+    padding: 18px;
+  }
+
+  .story-media {
+    padding: 16px;
+    border-right: none;
+    border-bottom: 1px solid rgba(110, 231, 85, 0.2);
+  }
+
+  .story-content {
+    padding: 20px 18px;
+  }
+
+  .story-content h3 {
+    font-size: 1.16rem;
   }
 
   .partner-logos-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .prog-row {
     grid-template-columns: 1fr;
     gap: 14px;
+    padding: 18px;
   }
 
   .prog-thumb {
@@ -2228,13 +2491,37 @@ ul {
     height: 180px;
   }
 
+  .prog-cta .btn {
+    width: 100%;
+  }
+
   .side-summary-grid {
     grid-template-columns: 1fr;
+  }
+
+  .reg-form {
+    padding: 22px 18px;
   }
 
   .pass-body {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* Bouton flottant WhatsApp compact sur mobile pour ne jamais masquer le texte */
+  .floating-wa {
+    bottom: 14px;
+    right: 14px;
+    left: auto;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  .floating-wa span {
+    display: none;
   }
 }
 

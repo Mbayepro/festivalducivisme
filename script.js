@@ -263,6 +263,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* Boutons "Voir plus / Voir moins" pour déplier les textes longs */
+  document.querySelectorAll('.readmore-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = btn.previousElementSibling;
+      if (!box || !box.classList.contains('readmore-box')) return;
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      const labelSpan = btn.querySelector('span');
+      if (isExpanded) {
+        box.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.classList.remove('is-open');
+        if (labelSpan) labelSpan.textContent = 'Voir plus';
+      } else {
+        box.removeAttribute('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.classList.add('is-open');
+        if (labelSpan) labelSpan.textContent = 'Voir moins';
+      }
+    });
+  });
+
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCaption = document.getElementById('lightboxCaption');
